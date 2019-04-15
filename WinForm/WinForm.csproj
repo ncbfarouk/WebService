@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\WsFab\Reference.cs">
+    <Compile Include="Connected Services\FabiWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -76,7 +76,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Connected Services\WsFab\WebService.wsdl" />
+    <None Include="Connected Services\FabiWebService\WebService.wsdl" />
+    <None Include="Connected Services\FabiWebService\WinForm.FabiWebService.XmlToJsonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -95,19 +98,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\WsFab\" />
+    <WCFMetadataStorage Include="Connected Services\FabiWebService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WsFab\WebService.disco" />
+    <None Include="Connected Services\FabiWebService\WebService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WsFab\configuration91.svcinfo" />
+    <None Include="Connected Services\FabiWebService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WsFab\configuration.svcinfo" />
+    <None Include="Connected Services\FabiWebService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WsFab\Reference.svcmap">
+    <None Include="Connected Services\FabiWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

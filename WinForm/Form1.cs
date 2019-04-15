@@ -13,7 +13,7 @@ namespace WinForm
 {
     public partial class Form1 : Form
     {
-        static WsFab.WebServiceSoapClient FabWs = new WsFab.WebServiceSoapClient();
+        static FabiWebService.WebServiceSoapClient FabWs = new FabiWebService.WebServiceSoapClient();
        
 
 

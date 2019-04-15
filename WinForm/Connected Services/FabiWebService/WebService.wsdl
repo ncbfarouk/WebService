@@ -16,6 +16,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="XmlToJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlToJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlToJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="FibonacciSoapIn">
@@ -24,16 +38,35 @@
   <wsdl:message name="FibonacciSoapOut">
     <wsdl:part name="parameters" element="tns:FibonacciResponse" />
   </wsdl:message>
+  <wsdl:message name="XmlToJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlToJson" />
+  </wsdl:message>
+  <wsdl:message name="XmlToJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlToJsonResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
     <wsdl:operation name="Fibonacci">
       <wsdl:input message="tns:FibonacciSoapIn" />
       <wsdl:output message="tns:FibonacciSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlToJson">
+      <wsdl:input message="tns:XmlToJsonSoapIn" />
+      <wsdl:output message="tns:XmlToJsonSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Fibonacci">
       <soap:operation soapAction="http://tempuri.org/Fibonacci" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlToJson">
+      <soap:operation soapAction="http://tempuri.org/XmlToJson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -53,13 +86,22 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="XmlToJson">
+      <soap12:operation soapAction="http://tempuri.org/XmlToJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="WebService">
     <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
-      <soap:address location="http://localhost:59261/WebService.asmx" />
+      <soap:address location="http://localhost:51954/WebService.asmx" />
     </wsdl:port>
     <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
-      <soap12:address location="http://localhost:59261/WebService.asmx" />
+      <soap12:address location="http://localhost:51954/WebService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
